@@ -1,3 +1,5 @@
+let form; // Déclaration globale de la variable form
+
 const candidatures = [
   { entreprise: 'Nom Entreprise A', poste: 'Poste A', date: '01/01/2023', suivi: 'Relance envoyée', etape: 'En attente de réponse' },
   { entreprise: 'Nom Entreprise B', poste: 'Poste B', date: '05/01/2023', suivi: 'Appel de suivi', etape: 'Entretien programmé' },
@@ -5,7 +7,7 @@ const candidatures = [
 ];
 
 function ouvrirFormulaire(candidature) {
-  const form = document.createElement('form');
+  form = document.createElement('form'); // Affectation de la variable form
   form.className = 'container mt-4';
 
   form.innerHTML = `

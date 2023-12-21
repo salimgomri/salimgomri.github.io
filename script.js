@@ -100,6 +100,7 @@ const btnsDelete = document.querySelectorAll('.btn-delete');
 function deleteCandidature(event) {
   const index = event.target.closest('tr').getAttribute('data-index');
   candidatures.splice(index, 1);
+  sauvegarderCandidatures(); // Enregistrement après suppression
   afficherCandidatures();
 }
 
@@ -108,4 +109,21 @@ window.onload = () => {
   const btnAjouterLigne = document.getElementById('ajouter-ligne');
   btnAjouterLigne.addEventListener('click', ajouterNouvelleLigne);
 };
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  const nouvelObjet = {};
+  formData.forEach((value, key) => {
+    nouvelObjet[key] = value;
+  });
+  if (candidature) {
+    candidatures[candidature.index] = nouvelObjet;
+  } else {
+    candidatures.push(nouvelObjet);
+  }
+  sauvegarderCandidatures(); // Enregistrement après ajout ou édition
+  newWindow.close();
+  afficherCandidatures();
+});
 

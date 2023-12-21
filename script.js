@@ -1,4 +1,8 @@
-// ... (candidatures existantes comme précédemment)
+const candidatures = [
+  { entreprise: 'Nom Entreprise A', poste: 'Poste A', date: '01/01/2023', suivi: 'Relance envoyée', etape: 'En attente de réponse' },
+  { entreprise: 'Nom Entreprise B', poste: 'Poste B', date: '05/01/2023', suivi: 'Appel de suivi', etape: 'Entretien programmé' },
+  // Ajoute d'autres données si nécessaire
+];
 
 function afficherCandidatures() {
   const tableBody = document.getElementById('table-body');

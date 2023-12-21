@@ -21,4 +21,22 @@ function afficherCandidatures() {
   tableBody.innerHTML = html;
 }
 
-window.onload = afficherCandidatures;
+function ajouterNouvelleLigne() {
+  const tableBody = document.getElementById('table-body');
+  const nouvelleLigne = `
+    <tr>
+      <td>Nouvelle entreprise</td>
+      <td>Nouveau poste</td>
+      <td>Date</td>
+      <td>Suivi</td>
+      <td>Étape suivante</td>
+    </tr>
+  `;
+  tableBody.insertAdjacentHTML('beforeend', nouvelleLigne);
+}
+
+window.onload = () => {
+  afficherCandidatures();
+  const btnAjouterLigne = document.getElementById('ajouter-ligne');
+  btnAjouterLigne.addEventListener('click', ajouterNouvelleLigne);
+};

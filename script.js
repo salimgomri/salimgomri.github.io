@@ -95,3 +95,4 @@ window.onload = () => {
   const btnAjouterLigne = document.getElementById('ajouter-ligne');
   btnAjouterLigne.addEventListener('click', ajouterNouvelleLigne);
 };
+

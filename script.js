@@ -6,21 +6,34 @@ const candidatures = [
 
 function ouvrirFormulaire(candidature) {
   const form = document.createElement('form');
+  form.className = 'container mt-4';
+
   form.innerHTML = `
-    <label for="entreprise">Nom de l'entreprise:</label>
-    <input type="text" id="entreprise" name="entreprise" value="${candidature ? candidature.entreprise : ''}"><br><br>
-    <label for="poste">Poste:</label>
-    <input type="text" id="poste" name="poste" value="${candidature ? candidature.poste : ''}"><br><br>
-    <label for="date">Date de candidature:</label>
-    <input type="text" id="date" name="date" value="${candidature ? candidature.date : ''}"><br><br>
-    <label for="suivi">Suivi:</label>
-    <input type="text" id="suivi" name="suivi" value="${candidature ? candidature.suivi : ''}"><br><br>
-    <label for="etape">Réponse/Étape suivante:</label>
-    <input type="text" id="etape" name="etape" value="${candidature ? candidature.etape : ''}"><br><br>
-    <button id="submit-btn" class="btn btn-primary">${candidature ? 'Modifier' : 'Ajouter'}</button>
+    <div class="form-group">
+      <label for="entreprise">Nom de l'entreprise:</label>
+      <input type="text" class="form-control" id="entreprise" name="entreprise" value="${candidature ? candidature.entreprise : ''}">
+    </div>
+    <div class="form-group">
+      <label for="poste">Poste:</label>
+      <input type="text" class="form-control" id="poste" name="poste" value="${candidature ? candidature.poste : ''}">
+    </div>
+    <div class="form-group">
+      <label for="date">Date de candidature:</label>
+      <input type="text" class="form-control" id="date" name="date" value="${candidature ? candidature.date : ''}">
+    </div>
+    <div class="form-group">
+      <label for="suivi">Suivi:</label>
+      <input type="text" class="form-control" id="suivi" name="suivi" value="${candidature ? candidature.suivi : ''}">
+    </div>
+    <div class="form-group">
+      <label for="etape">Réponse/Étape suivante:</label>
+      <input type="text" class="form-control" id="etape" name="etape" value="${candidature ? candidature.etape : ''}">
+    </div>
+    <button type="submit" class="btn btn-primary">${candidature ? 'Modifier' : 'Ajouter'}</button>
   `;
 
   const newWindow = window.open('', 'Candidature', 'width=400,height=400');
+  newWindow.document.body.innerHTML = '';
   newWindow.document.body.appendChild(form);
 
   form.addEventListener('submit', (event) => {

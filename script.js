@@ -4,6 +4,7 @@ const candidatures = [
   // Ajoute d'autres données si nécessaire
 ];
 
+
 function afficherCandidatures() {
   const tableBody = document.getElementById('table-body');
   let html = '';
